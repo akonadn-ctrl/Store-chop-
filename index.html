@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ساعات أكادير</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      margin: 5px;
+      color: #ddd;
+    }
+
+    .search {
+      background: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .search input {
+      width: 90%;
+      max-width: 500px;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: white;
+      margin: 15px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .hero h2 {
+      margin-bottom: 8px;
+    }
+
+    .products {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      display: block;
+      background: white;
+    }
+
+    .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .info p {
+      color: #777;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .buttons a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      padding: 11px 5px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .phone {
+      background: #222;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .product img {
+        height: 210px;
+      }
+
+      .info {
+        padding: 10px;
+      }
+
+      .info h3 {
+        font-size: 15px;
+      }
+
+      .price {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>⌚ ساعات أكادير</h1>
+  <p>ساعات أنيقة بأسعار مناسبة</p>
+  <p>📍 أكادير - المغرب</p>
+  <p>📞 0783084921</p>
+</header>
+
+<div class="search">
+  <input
+    type="text"
+    id="search"
+    placeholder="🔍 ابحث عن ساعة..."
+    onkeyup="searchProducts()"
+  >
+</div>
+
+<section class="hero">
+  <h2>ساعات فاخرة وأنيقة</h2>
+  <p>اختر ساعتك وتواصل معنا مباشرة عبر واتساب</p>
+</section>
+
+<div class="products">
+
+  <div class="product">
+    <img src="watch1.png" alt="ساعة 1">
+    <div class="info">
+      <h3>ساعة سوداء وذهبية</h3>
+      <p>تصميم أنيق وعصري</p>
+      <div class="price">150 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الأولى" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch2.png" alt="ساعة 2">
+    <div class="info">
+      <h3>ساعة فضية</h3>
+      <p>تصميم مميز</p>
+      <div class="price">170 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثانية" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch3.png" alt="ساعة 3">
+    <div class="info">
+      <h3>ساعة رياضية</h3>
+      <p>مناسبة للاستعمال اليومي</p>
+      <div class="price">160 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثالثة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch4.png" alt="ساعة 4">
+    <div class="info">
+      <h3>ساعة كلاسيكية</h3>
+      <p>أناقة في كل مناسبة</p>
+      <div class="price">190 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الرابعة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch5.png" alt="ساعة 5">
+    <div class="info">
+      <h3>ساعة أنيقة</h3>
+      <p>مظهر عصري</p>
+      <div class="price">150 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الخامسة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch6.png" alt="ساعة 6">
+    <div class="info">
+      <h3>ساعة فضية أنيقة</h3>
+      <p>تصميم جميل</p>
+      <div class="price">180 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة السادسة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch7.png" alt="ساعة 7">
+    <div class="info">
+      <h3>ساعة سوداء كلاسيكية</h3>
+      <p>بسيطة وأنيقة</p>
+      <div class="price">120 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة السابعة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch8.png" alt="ساعة 8">
+    <div class="info">
+      <h3>ساعة رياضية</h3>
+      <p>تصميم عصري</p>
+      <div class="price">160 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثامنة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch9.png" alt="ساعة 9">
+    <div class="info">
+      <h3>ساعة كلاسيكية</h3>
+      <p>تصميم فاخر</p>
+      <div class="price">190 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة التاسعة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch10.png" alt="ساعة 10">
+    <div class="info">
+      <h3>ساعة ذهبية</h3>
+      <p>أناقة مميزة</p>
+      <div class="price">130 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة العاشرة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch11.png" alt="ساعة 11">
+    <div class="info">
+      <h3>ساعة سوداء وحمراء</h3>
+      <p>تصميم رياضي</p>
+      <div class="price">180 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الحادية عشرة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch12.png" alt="ساعة 12">
+    <div class="info">
+      <h3>ساعة خضراء</h3>
+      <p>تصميم مميز</p>
+      <div class="price">170 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثانية عشرة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch13.png" alt="ساعة 13">
+    <div class="info">
+      <h3>ساعة بحزام جلدي</h3>
+      <p>تصميم كلاسيكي</p>
+      <div class="price">140 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثالثة عشرة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="watch14.png" alt="ساعة 14">
+    <div class="info">
+      <h3>ساعة فاخرة</h3>
+      <p>تصميم أنيق ومميز</p>
+      <div class="price">200 درهم</div>
+      <div class="buttons">
+        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الرابعة عشرة" target="_blank">واتساب</a>
+        <a class="phone" href="tel:0783084921">اتصال</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <h3>⌚ ساعات أكادير</h3>
+  <p>📍 أكادير - المغرب</p>
+  <p>📞 0783084921</p>
+</footer>
+
+<script>
+function searchProducts() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    const text = product.innerText.toLowerCase();
+
+    if (text.includes(search)) {
+      product.style.display = "";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+  </html>
