@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ساعات أكادير</title>
+
+  <title>Store-chop- | متجر الساعات</title>
 
   <style>
     * {
@@ -13,156 +14,312 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f5f6f8;
       color: #222;
     }
 
     header {
-      background: #111;
+      background: linear-gradient(135deg, #111827, #374151);
       color: white;
-      padding: 18px;
       text-align: center;
+      padding: 25px 15px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.15);
     }
 
     header h1 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 8px;
     }
 
     header p {
-      margin: 5px;
-      color: #ddd;
+      font-size: 15px;
+      opacity: .9;
     }
 
-    .search {
+    .top-info {
       background: white;
-      padding: 15px;
+      padding: 12px;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
     }
 
-    .search input {
-      width: 90%;
-      max-width: 500px;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
+    .top-info span {
+      margin: 0 8px;
+      font-size: 14px;
     }
 
-    .hero {
-      background: white;
-      margin: 15px;
-      padding: 25px;
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 25px auto;
+    }
+
+    .section-title {
       text-align: center;
-      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
-    .hero h2 {
-      margin-bottom: 8px;
+    .section-title h2 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: #666;
     }
 
     .products {
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .product {
       background: white;
-      border-radius: 12px;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+      transition: .25s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,.14);
     }
 
     .product img {
       width: 100%;
-      height: 280px;
-      object-fit: contain;
+      height: 220px;
+      object-fit: cover;
       display: block;
-      background: white;
+      background: #eee;
     }
 
-    .info {
+    .product-content {
       padding: 15px;
     }
 
-    .info h3 {
+    .product h3 {
+      font-size: 17px;
       margin-bottom: 8px;
-      font-size: 18px;
-    }
-
-    .info p {
-      color: #777;
-      margin-bottom: 10px;
-      font-size: 14px;
     }
 
     .price {
-      font-size: 21px;
+      color: #111827;
       font-weight: bold;
+      font-size: 19px;
       margin-bottom: 12px;
     }
 
-    .buttons {
+    .quantity {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 8px;
+      margin-bottom: 10px;
     }
 
-    .buttons a {
-      flex: 1;
+    .quantity button {
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 8px;
+      background: #e5e7eb;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .quantity span {
+      min-width: 30px;
       text-align: center;
-      text-decoration: none;
-      color: white;
-      padding: 11px 5px;
-      border-radius: 7px;
       font-weight: bold;
     }
 
-    .whatsapp {
-      background: #25d366;
-    }
-
-    .phone {
-      background: #222;
-    }
-
-    footer {
-      background: #111;
+    .add-btn {
+      width: 100%;
+      border: none;
+      border-radius: 9px;
+      padding: 11px;
+      background: #111827;
       color: white;
-      text-align: center;
-      padding: 25px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .add-btn:hover {
+      background: #000;
+    }
+
+    .cart {
+      background: white;
+      margin-top: 35px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+    }
+
+    .cart h2 {
+      margin-bottom: 15px;
+    }
+
+    #cartItems {
+      margin-bottom: 15px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
+    }
+
+    .cart-item-price {
+      color: #555;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .remove-btn {
+      border: none;
+      background: #ef4444;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      background: #f3f4f6;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 21px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .order-form {
       margin-top: 20px;
     }
 
-    @media (max-width: 700px) {
+    .order-form h3 {
+      margin-bottom: 12px;
+    }
+
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 9px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .order-form input:focus,
+    .order-form textarea:focus {
+      border-color: #111827;
+    }
+
+    .order-form textarea {
+      height: 90px;
+      resize: vertical;
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      border: none;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+    }
+
+    .empty {
+      color: #777;
+      text-align: center;
+      padding: 15px;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      header h1 {
+        font-size: 25px;
+      }
+
       .products {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
+        gap: 12px;
       }
 
       .product img {
-        height: 210px;
+        height: 180px;
       }
 
-      .info {
-        padding: 10px;
+      .product-content {
+        padding: 11px;
       }
 
-      .info h3 {
+      .product h3 {
         font-size: 15px;
       }
 
       .price {
-        font-size: 18px;
+        font-size: 17px;
       }
 
-      .buttons {
-        flex-direction: column;
+      .cart {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product img {
+        height: 240px;
       }
     }
   </style>
@@ -171,234 +328,527 @@
 <body>
 
 <header>
-  <h1>⌚ ساعات أكادير</h1>
-  <p>ساعات أنيقة بأسعار مناسبة</p>
-  <p>📍 أكادير - المغرب</p>
-  <p>📞 0783084921</p>
+  <h1>⌚ Store-chop-</h1>
+  <p>متجر الساعات الأنيقة</p>
 </header>
 
-<div class="search">
-  <input
-    type="text"
-    id="search"
-    placeholder="🔍 ابحث عن ساعة..."
-    onkeyup="searchProducts()"
-  >
+<div class="top-info">
+  <span>📍 أكادير، المغرب</span>
+  <span>📞 0783084921</span>
+  <span>💬 الطلب عبر WhatsApp</span>
 </div>
 
-<section class="hero">
-  <h2>ساعات فاخرة وأنيقة</h2>
-  <p>اختر ساعتك وتواصل معنا مباشرة عبر واتساب</p>
-</section>
+<main class="container">
 
-<div class="products">
-
-  <div class="product">
-    <img src="watch1.png" alt="ساعة 1">
-    <div class="info">
-      <h3>ساعة سوداء وذهبية</h3>
-      <p>تصميم أنيق وعصري</p>
-      <div class="price">150 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الأولى" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
+  <div class="section-title">
+    <h2>⌚ ساعاتنا</h2>
+    <p>اختر ساعة أو أكثر وأضفها إلى السلة</p>
   </div>
 
-  <div class="product">
-    <img src="watch2.png" alt="ساعة 2">
-    <div class="info">
-      <h3>ساعة فضية</h3>
-      <p>تصميم مميز</p>
-      <div class="price">170 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثانية" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
+  <div class="products" id="products"></div>
 
-  <div class="product">
-    <img src="watch3.png" alt="ساعة 3">
-    <div class="info">
-      <h3>ساعة رياضية</h3>
-      <p>مناسبة للاستعمال اليومي</p>
-      <div class="price">160 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثالثة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
+  <section class="cart">
+    <h2>🛒 سلة المشتريات</h2>
 
-  <div class="product">
-    <img src="watch4.png" alt="ساعة 4">
-    <div class="info">
-      <h3>ساعة كلاسيكية</h3>
-      <p>أناقة في كل مناسبة</p>
-      <div class="price">190 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الرابعة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
+    <div id="cartItems">
+      <div class="empty">السلة فارغة</div>
     </div>
-  </div>
 
-  <div class="product">
-    <img src="watch5.png" alt="ساعة 5">
-    <div class="info">
-      <h3>ساعة أنيقة</h3>
-      <p>مظهر عصري</p>
-      <div class="price">150 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الخامسة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
+    <div class="total">
+      <span>المجموع:</span>
+      <span id="total">0 MAD</span>
     </div>
-  </div>
 
-  <div class="product">
-    <img src="watch6.png" alt="ساعة 6">
-    <div class="info">
-      <h3>ساعة فضية أنيقة</h3>
-      <p>تصميم جميل</p>
-      <div class="price">180 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة السادسة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
+    <div class="order-form">
+
+      <h3>👤 معلومات الزبون</h3>
+
+      <input
+        type="text"
+        id="customerName"
+        placeholder="الاسم الكامل"
+      >
+
+      <input
+        type="tel"
+        id="customerPhone"
+        placeholder="رقم الهاتف"
+      >
+
+      <textarea
+        id="customerAddress"
+        placeholder="العنوان الكامل"
+      ></textarea>
+
+      <button
+        class="whatsapp-btn"
+        onclick="sendOrder()"
+      >
+        💬 إرسال الطلب عبر WhatsApp
+      </button>
+
     </div>
-  </div>
+  </section>
 
-  <div class="product">
-    <img src="watch7.png" alt="ساعة 7">
-    <div class="info">
-      <h3>ساعة سوداء كلاسيكية</h3>
-      <p>بسيطة وأنيقة</p>
-      <div class="price">120 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة السابعة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch8.png" alt="ساعة 8">
-    <div class="info">
-      <h3>ساعة رياضية</h3>
-      <p>تصميم عصري</p>
-      <div class="price">160 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثامنة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch9.png" alt="ساعة 9">
-    <div class="info">
-      <h3>ساعة كلاسيكية</h3>
-      <p>تصميم فاخر</p>
-      <div class="price">190 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة التاسعة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch10.png" alt="ساعة 10">
-    <div class="info">
-      <h3>ساعة ذهبية</h3>
-      <p>أناقة مميزة</p>
-      <div class="price">130 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة العاشرة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch11.png" alt="ساعة 11">
-    <div class="info">
-      <h3>ساعة سوداء وحمراء</h3>
-      <p>تصميم رياضي</p>
-      <div class="price">180 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الحادية عشرة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch12.png" alt="ساعة 12">
-    <div class="info">
-      <h3>ساعة خضراء</h3>
-      <p>تصميم مميز</p>
-      <div class="price">170 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثانية عشرة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch13.png" alt="ساعة 13">
-    <div class="info">
-      <h3>ساعة بحزام جلدي</h3>
-      <p>تصميم كلاسيكي</p>
-      <div class="price">140 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الثالثة عشرة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="watch14.png" alt="ساعة 14">
-    <div class="info">
-      <h3>ساعة فاخرة</h3>
-      <p>تصميم أنيق ومميز</p>
-      <div class="price">200 درهم</div>
-      <div class="buttons">
-        <a class="whatsapp" href="https://wa.me/212783084921?text=السلام عليكم، أريد شراء الساعة الرابعة عشرة" target="_blank">واتساب</a>
-        <a class="phone" href="tel:0783084921">اتصال</a>
-      </div>
-    </div>
-  </div>
-
-</div>
+</main>
 
 <footer>
-  <h3>⌚ ساعات أكادير</h3>
-  <p>📍 أكادير - المغرب</p>
+  <p>⌚ Store-chop-</p>
+  <p>📍 أكادير، المغرب</p>
   <p>📞 0783084921</p>
 </footer>
 
+
 <script>
-function searchProducts() {
-  const search = document.getElementById("search").value.toLowerCase();
-  const products = document.querySelectorAll(".product");
+
+const products = [
+
+  {
+    id: 1,
+    name: "ساعة 1",
+    price: 100,
+    image: "images/IMG_20260929_120619.png"
+  },
+
+  {
+    id: 2,
+    name: "ساعة 2",
+    price: 110,
+    image: "images/IMG_20260929_120631.png"
+  },
+
+  {
+    id: 3,
+    name: "ساعة 3",
+    price: 120,
+    image: "images/IMG_20260929_120644.png"
+  },
+
+  {
+    id: 4,
+    name: "ساعة 4",
+    price: 130,
+    image: "images/IMG_20260929_120703.png"
+  },
+
+  {
+    id: 5,
+    name: "ساعة 5",
+    price: 140,
+    image: "images/IMG_20260929_120715.png"
+  },
+
+  {
+    id: 6,
+    name: "ساعة 6",
+    price: 150,
+    image: "images/IMG_20260929_120733.png"
+  },
+
+  {
+    id: 7,
+    name: "ساعة 7",
+    price: 160,
+    image: "images/IMG_20260929_120751.png"
+  },
+
+  {
+    id: 8,
+    name: "ساعة 8",
+    price: 170,
+    image: "images/IMG_20260929_120811.png"
+  },
+
+  {
+    id: 9,
+    name: "ساعة 9",
+    price: 180,
+    image: "images/IMG_20260929_120832.png"
+  },
+
+  {
+    id: 10,
+    name: "ساعة 10",
+    price: 190,
+    image: "images/IMG_20260929_120848.png"
+  },
+
+  {
+    id: 11,
+    name: "ساعة 11",
+    price: 200,
+    image: "images/IMG_20260929_120903.png"
+  },
+
+  {
+    id: 12,
+    name: "ساعة 12",
+    price: 150,
+    image: "images/IMG_20260929_120925.png"
+  },
+
+  {
+    id: 13,
+    name: "ساعة 13",
+    price: 170,
+    image: "images/IMG_20260929_120942.png"
+  },
+
+  {
+    id: 14,
+    name: "ساعة 14",
+    price: 180,
+    image: "images/IMG_20260929_120958.png"
+  },
+
+  {
+    id: 15,
+    name: "ساعة 15",
+    price: 200,
+    image: "images/IMG_20260929_121013.png"
+  }
+
+];
+
+
+let cart = [];
+
+
+// عرض المنتجات
+function displayProducts() {
+
+  const container = document.getElementById("products");
+
+  container.innerHTML = "";
 
   products.forEach(product => {
-    const text = product.innerText.toLowerCase();
 
-    if (text.includes(search)) {
-      product.style.display = "";
-    } else {
-      product.style.display = "none";
-    }
+    const div = document.createElement("div");
+
+    div.className = "product";
+
+    div.innerHTML = `
+
+      <img
+        src="${product.image}"
+        alt="${product.name}"
+        loading="lazy"
+        onerror="this.style.opacity='0.3'"
+      >
+
+      <div class="product-content">
+
+        <h3>${product.name}</h3>
+
+        <div class="price">
+          ${product.price} MAD
+        </div>
+
+        <div class="quantity">
+
+          <button
+            onclick="changeQuantity(${product.id}, -1)"
+          >
+            −
+          </button>
+
+          <span id="qty-${product.id}">
+            1
+          </span>
+
+          <button
+            onclick="changeQuantity(${product.id}, 1)"
+          >
+            +
+          </button>
+
+        </div>
+
+        <button
+          class="add-btn"
+          onclick="addToCart(${product.id})"
+        >
+          🛒 أضف إلى السلة
+        </button>
+
+      </div>
+
+    `;
+
+    container.appendChild(div);
+
   });
+
 }
+
+
+const quantities = {};
+
+
+// تغيير الكمية
+function changeQuantity(id, amount) {
+
+  if (!quantities[id]) {
+    quantities[id] = 1;
+  }
+
+  quantities[id] += amount;
+
+  if (quantities[id] < 1) {
+    quantities[id] = 1;
+  }
+
+  document.getElementById(
+    "qty-" + id
+  ).textContent = quantities[id];
+
+}
+
+
+// إضافة إلى السلة
+function addToCart(id) {
+
+  const product = products.find(
+    p => p.id === id
+  );
+
+  const quantity = quantities[id] || 1;
+
+  const existing = cart.find(
+    item => item.id === id
+  );
+
+  if (existing) {
+
+    existing.quantity += quantity;
+
+  } else {
+
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: quantity
+    });
+
+  }
+
+  quantities[id] = 1;
+
+  document.getElementById(
+    "qty-" + id
+  ).textContent = 1;
+
+  updateCart();
+
+}
+
+
+// حذف من السلة
+function removeFromCart(id) {
+
+  cart = cart.filter(
+    item => item.id !== id
+  );
+
+  updateCart();
+
+}
+
+
+// تحديث السلة
+function updateCart() {
+
+  const container =
+    document.getElementById("cartItems");
+
+  const totalElement =
+    document.getElementById("total");
+
+  if (cart.length === 0) {
+
+    container.innerHTML =
+      '<div class="empty">السلة فارغة</div>';
+
+    totalElement.textContent =
+      "0 MAD";
+
+    return;
+  }
+
+
+  container.innerHTML = "";
+
+  let total = 0;
+
+
+  cart.forEach(item => {
+
+    const itemTotal =
+      item.price * item.quantity;
+
+    total += itemTotal;
+
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "cart-item";
+
+    div.innerHTML = `
+
+      <div class="cart-item-info">
+
+        <div class="cart-item-name">
+          ${item.name}
+        </div>
+
+        <div class="cart-item-price">
+          ${item.price} MAD × ${item.quantity}
+          = ${itemTotal} MAD
+        </div>
+
+      </div>
+
+      <button
+        class="remove-btn"
+        onclick="removeFromCart(${item.id})"
+      >
+        حذف
+      </button>
+
+    `;
+
+    container.appendChild(div);
+
+  });
+
+
+  totalElement.textContent =
+    total + " MAD";
+
+}
+
+
+// إرسال الطلب إلى WhatsApp
+function sendOrder() {
+
+  if (cart.length === 0) {
+
+    alert("⚠️ أضف منتجًا واحدًا على الأقل إلى السلة.");
+
+    return;
+  }
+
+
+  const name =
+    document.getElementById(
+      "customerName"
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
+
+  const address =
+    document.getElementById(
+      "customerAddress"
+    ).value.trim();
+
+
+  if (!name || !phone || !address) {
+
+    alert(
+      "⚠️ يرجى إدخال الاسم ورقم الهاتف والعنوان."
+    );
+
+    return;
+  }
+
+
+  let total = 0;
+
+  let message =
+    "🛍️ *طلب جديد من Store-chop-*%0A%0A";
+
+
+  message +=
+    "👤 *معلومات الزبون:*%0A";
+
+  message +=
+    "الاسم: " +
+    encodeURIComponent(name) +
+    "%0A";
+
+  message +=
+    "الهاتف: " +
+    encodeURIComponent(phone) +
+    "%0A";
+
+  message +=
+    "العنوان: " +
+    encodeURIComponent(address) +
+    "%0A%0A";
+
+
+  message +=
+    "⌚ *المنتجات:*%0A";
+
+
+  cart.forEach(item => {
+
+    const itemTotal =
+      item.price * item.quantity;
+
+    total += itemTotal;
+
+    message +=
+      "• " +
+      encodeURIComponent(item.name) +
+      " × " +
+      item.quantity +
+      " = " +
+      itemTotal +
+      " MAD%0A";
+
+  });
+
+
+  message +=
+    "%0A💰 *المجموع: " +
+    total +
+    " MAD*";
+
+
+  // رقم WhatsApp
+  const whatsappNumber =
+    "212783084921";
+
+
+  const url =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    message;
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+// تشغيل الموقع
+displayProducts();
+updateCart();
+
 </script>
 
 </body>
-  </html>
+</html>
+      
+
